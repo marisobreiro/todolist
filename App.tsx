@@ -6,6 +6,7 @@ import {darkMode, lightMode} from './src/config/theme';
 import {Header} from './src/components/Header/Header';
 
 import * as S from './App.styles';
+import { Tasks } from './src/components/Main/Tasks';
 
 const App = () => {
   const scheme = useColorScheme();
@@ -15,6 +16,7 @@ const App = () => {
       <S.Container>
         <StatusBar />
         <Header />
+        <Tasks />
       </S.Container>
     </ThemeProvider>
   );

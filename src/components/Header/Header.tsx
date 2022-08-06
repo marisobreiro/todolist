@@ -15,10 +15,10 @@ export function Header({onPress}: TouchableOpacityProps) {
   return (
     <S.Container>
       <S.Title>todolist.</S.Title>
-      {showMoon ? (
+      {!showMoon ? (
         <TouchableOpacity
           onPress={() => {
-            setShowMoon(false);
+            setShowMoon(true);
             onPress;
           }}>
           <Moon width={25} height={25} stroke={theme.color} />
@@ -26,7 +26,7 @@ export function Header({onPress}: TouchableOpacityProps) {
       ) : (
         <TouchableOpacity
           onPress={() => {
-            setShowMoon(true);
+            setShowMoon(false);
             onPress;
           }}>
           <Sun width={25} height={25} stroke={theme.color} />
