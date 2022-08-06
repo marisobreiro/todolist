@@ -1,15 +1,22 @@
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, useColorScheme} from 'react-native';
+import {ThemeProvider} from 'styled-components';
 
-import * as S from './App.styles';
+import {darkMode, lightMode} from './src/config/theme';
 import {Header} from './src/components/Header/Header';
 
+import * as S from './App.styles';
+
 const App = () => {
+  const scheme = useColorScheme();
+
   return (
-    <S.Container>
-      <StatusBar />
-      <Header />
-    </S.Container>
+    <ThemeProvider theme={scheme === 'dark' ? darkMode : lightMode}>
+      <S.Container>
+        <StatusBar />
+        <Header />
+      </S.Container>
+    </ThemeProvider>
   );
 };
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-    align-items: center;
+  align-items: center;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
@@ -9,7 +9,7 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: #fff;
+  color: ${props => props.theme.color}
   font-size: 30px;
   font-weight: bold;
 `;
@@ -17,5 +17,5 @@ export const Title = styled.Text`
 export const Menu = styled.TouchableOpacity`
   width: 20px;
   height: 20px;
-  background: #fff;
+  background: ${props => props.theme.background};
 `;
