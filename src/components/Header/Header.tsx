@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
-import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 import {useTheme} from 'styled-components';
 import Sun from '../../assets/icons/sun.svg';
 import Moon from '../../assets/icons/moon.svg';
+import AddTask from '../../assets/icons/plus-circle.svg';
 
 import * as S from './Header.styles';
 
-export function Header({onPress}: TouchableOpacityProps) {
+export function Header({...props}) {
   const theme = useTheme();
 
   const [showMoon, setShowMoon] = useState(false);
@@ -15,23 +16,28 @@ export function Header({onPress}: TouchableOpacityProps) {
   return (
     <S.Container>
       <S.Title>todolist.</S.Title>
-      {!showMoon ? (
+      <S.ActionsContainer>
         <TouchableOpacity
-          onPress={() => {
-            setShowMoon(true);
-            onPress;
-          }}>
-          <Moon width={25} height={25} stroke={theme.color} />
+          style={{marginRight: 20}}
+          onPress={props.handleShowModal}>
+          <AddTask width={25} height={25} stroke={theme.color} />
         </TouchableOpacity>
-      ) : (
-        <TouchableOpacity
-          onPress={() => {
-            setShowMoon(false);
-            onPress;
-          }}>
-          <Sun width={25} height={25} stroke={theme.color} />
-        </TouchableOpacity>
-      )}
+        {!showMoon ? (
+          <TouchableOpacity
+            onPress={() => {
+              setShowMoon(true);
+            }}>
+            <Moon width={25} height={25} stroke={theme.color} />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity
+            onPress={() => {
+              setShowMoon(false);
+            }}>
+            <Sun width={25} height={25} stroke={theme.color} />
+          </TouchableOpacity>
+        )}
+      </S.ActionsContainer>
     </S.Container>
   );
 }

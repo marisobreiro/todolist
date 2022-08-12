@@ -8,6 +8,11 @@ export const Container = styled.View`
   padding: 40px 20px;
 `;
 
+export const ActionsContainer = styled.View`
+  align-items: flex-end;
+  flex-direction: row;
+`;
+
 export const Title = styled.Text`
   color: ${props => props.theme.color}
   font-size: 30px;

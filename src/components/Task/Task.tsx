@@ -2,14 +2,15 @@ import React, {useState} from 'react';
 import {TextProps} from 'react-native';
 import {useTheme} from 'styled-components';
 
-import Todo from '../../../assets/icons/circle.svg';
-import Done from '../../../assets/icons/check-circle.svg';
+import {icons} from '../../utils/icons';
 
 import * as S from './Task.styles';
 
 export function Task({children}: TextProps) {
   const theme = useTheme();
   const [done, setDone] = useState(false);
+  const Todo = icons.circle;
+  const Done = icons.check;
 
   return (
     <S.TaskContainer onPress={() => setDone(true)}>
