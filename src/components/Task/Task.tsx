@@ -11,9 +11,9 @@ interface TaskProps extends TouchableOpacityProps {}
 export function Task({children, ...props}: TaskProps) {
   const theme = useTheme();
   const [done, setDone] = useState(false);
-
   const Trash = icons.trash;
   const Icon = done ? icons.check : icons.circle;
+  const size = 25;
 
   return (
     <>
@@ -22,11 +22,11 @@ export function Task({children, ...props}: TaskProps) {
           !done ? setDone(true) : setDone(false);
         }}>
         <S.TaskContainer>
-          <Icon height={20} width={20} stroke={theme.color} />
+          <Icon height={size} width={size} stroke={theme.color} />
           <S.TaskText>{children}</S.TaskText>
         </S.TaskContainer>
         <S.DeleteTask {...props}>
-          <Trash height={20} width={20} stroke={theme.color} />
+          <Trash height={size} width={size} stroke={theme.color} />
         </S.DeleteTask>
       </S.TaskCard>
     </>
