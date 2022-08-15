@@ -24,3 +24,7 @@ export const Menu = styled.TouchableOpacity`
   height: 20px;
   background: ${props => props.theme.background};
 `;
+
+export const IconContainer = styled.TouchableOpacity`
+  padding: 20px;
+`;

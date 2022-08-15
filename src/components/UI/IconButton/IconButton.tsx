@@ -1,8 +1,9 @@
 import React from 'react';
-import {TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import {Platform, TouchableOpacityProps} from 'react-native';
 import {useTheme} from 'styled-components';
 
 import {icons} from '../../../utils/icons';
+import * as S from './IconButton.styles';
 
 interface IconButton extends TouchableOpacityProps {
   type: string;
@@ -11,11 +12,11 @@ interface IconButton extends TouchableOpacityProps {
 export function IconButton({type, ...props}: IconButton) {
   const theme = useTheme();
   const Icon = icons[type];
-  const size = 25;
+  const size = Platform.OS === 'ios' ? 30 : 25;
 
   return (
-    <TouchableOpacity {...props}>
+    <S.IconContainer {...props}>
       <Icon width={size} height={size} stroke={theme.color} />
-    </TouchableOpacity>
+    </S.IconContainer>
   );
 }

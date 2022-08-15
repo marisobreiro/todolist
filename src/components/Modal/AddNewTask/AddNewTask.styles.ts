@@ -3,14 +3,15 @@ import {Platform} from 'react-native';
 
 export const ContainerAdd = styled.View`
   background: ${props => props.theme.background};
-  padding: ${Platform.OS === 'ios' ? '80px 20px;' : '50px 20px'};
   align-items: flex-end;
   flex: 1;
+  padding-top: ${Platform.OS === 'ios' ? '70px;' : '30px'};
 `;
 
 export const AddTask = styled.View`
   align-self: center;
   margin-top: 180px;
+  padding: ${Platform.OS === 'ios' ? '0px 20px;' : '0px 40px'};
 `;
 
 export const AddTaskText = styled.Text`
@@ -28,7 +29,7 @@ export const InputContainer = styled.View`
 
 export const TaskInput = styled.TextInput`
   color: ${props => props.theme.color}
-  width: 90%;
+  width: 80%;
   padding: ${Platform.OS === 'ios' ? '15px' : '10px'};
   border-color: ${props => props.theme.color};
   border-width: 1px;
