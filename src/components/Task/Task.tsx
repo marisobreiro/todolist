@@ -1,25 +1,38 @@
 import React, {useState} from 'react';
-import {TextProps} from 'react-native';
+import {TextProps, TouchableOpacityProps} from 'react-native';
 import {useTheme} from 'styled-components';
 
 import {icons} from '../../utils/icons';
 
 import * as S from './Task.styles';
 
-export function Task({children}: TextProps) {
+interface TaskProps extends TouchableOpacityProps {}
+
+export function Task({children, ...props}: TaskProps) {
   const theme = useTheme();
   const [done, setDone] = useState(false);
   const Todo = icons.circle;
   const Done = icons.check;
+  const Trash = icons.trash;
 
   return (
-    <S.TaskContainer onPress={() => setDone(true)}>
+    <>
       {!done ? (
-        <Todo height={20} width={20} stroke={theme.color} />
+        <S.TaskCard onPress={() => setDone(true)}>
+          <S.TaskContainer>
+            <Todo height={20} width={20} stroke={theme.color} />
+            <S.TaskText>{children}</S.TaskText>
+          </S.TaskContainer>
+          <S.DeleteTask {...props}>
+            <Trash height={20} width={20} stroke={theme.color} />
+          </S.DeleteTask>
+        </S.TaskCard>
       ) : (
-        <Done height={20} width={20} stroke={theme.color} />
+        <S.TaskCard onPress={() => setDone(false)}>
+          <Done height={20} width={20} stroke={theme.color} />
+          <S.TaskText>{children}</S.TaskText>
+        </S.TaskCard>
       )}
-      <S.TaskText>{children}</S.TaskText>
-    </S.TaskContainer>
+    </>
   );
 }

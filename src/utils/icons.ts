@@ -4,6 +4,7 @@ import Circle from '../assets/icons/circle.svg';
 import PlusCircle from '../assets/icons/plus-circle.svg';
 import Sun from '../assets/icons/sun.svg';
 import Moon from '../assets/icons/moon.svg';
+import Trash from '../assets/icons/trash-2.svg';
 
 export const icons = {
   close: Close,
@@ -12,4 +13,5 @@ export const icons = {
   plus: PlusCircle,
   sun: Sun,
   moon: Moon,
+  trash: Trash,
 };

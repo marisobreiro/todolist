@@ -31,6 +31,7 @@ const App = () => {
 
   function handleDeleteTask(id: string) {
     setMyTasks(tasks => tasks.filter(task => task.id !== id));
+    console.log('Deletou tarefa');
   }
 
   return (
@@ -41,7 +42,9 @@ const App = () => {
         <FlatList
           data={myTasks}
           keyExtractor={item => item.id}
-          renderItem={({item}) => <Task>{item.data}</Task>}
+          renderItem={({item}) => (
+            <Task onPress={() => handleDeleteTask(item.id)}>{item.data}</Task>
+          )}
         />
         {showModal ? (
           <AddNewTask
