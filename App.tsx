@@ -38,7 +38,7 @@ const App = () => {
     <ThemeProvider theme={scheme === 'dark' ? darkMode : lightMode}>
       <S.Container>
         <StatusBar />
-        <Header handleShowModal={() => setShowModal(true)} />
+        <Header handleShowModal={() => setShowModal(true)}  />
         <FlatList
           data={myTasks}
           keyExtractor={item => item.id}
