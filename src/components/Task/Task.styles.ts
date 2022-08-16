@@ -12,6 +12,7 @@ export const TaskCard = styled.TouchableOpacity`
 `;
 
 export const TaskContainer = styled.View`
+  align-items: center;
   flex-direction: row;
   padding: 20px;
   width: 75%;
